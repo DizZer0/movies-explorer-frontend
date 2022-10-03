@@ -1,0 +1,135 @@
+.about-project {
+  padding: 70px 18px;
+  background-color: #202020;
+}
+
+.about-project__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+.about-project__title_border {
+  padding-bottom: 28px;
+  border-bottom: 1px solid #DADADA;
+  margin-bottom: 60px;
+}
+
+.about-project__subtitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 145%;
+  color: #fff;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 60px;
+}
+
+.about-project__plan {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 4fr;
+  grid-template-rows: 35px auto;
+  grid-row-gap: 10px;
+  vertical-align: middle;
+  padding: 0 18px;
+}
+
+.about-project__technology {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  color: #A0A0A0;
+  margin: 0;
+}
+
+.about-project__weeks {
+  background-color: #3DDC84;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+}
+
+.about-project__weeks_gray {
+  background-color: #303030;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__container {
+    display: grid;
+    grid-gap: 22px 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, min-content) ;
+    padding-bottom: 93px;
+  }
+
+  .about-project__title {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding-bottom: 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .about-project__title_one {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .about-project__title_two {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  .about-project__title_border {
+    font-size: 20px;
+    line-height: 27px;
+    display: block;
+    padding-bottom: 23px;
+    margin-bottom: 70px;
+  }
+
+  .about-project__subtitle {
+    padding: 0;
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+  .about-project__plan {
+    padding: 0;
+    grid-row-gap: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-project {
+    padding: 110px 70px;
+  }
+
+  .about-project__container {
+    grid-gap: 26px 40px;
+    padding-bottom: 110px;
+  }
+}

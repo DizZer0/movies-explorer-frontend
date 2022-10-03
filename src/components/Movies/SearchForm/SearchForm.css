@@ -1,0 +1,119 @@
+.search-form {
+  padding-bottom: 10px;
+}
+
+.search-form__input-container {
+  min-height: 48px;
+  padding: 0 7px 0 16px;
+  border: 1.5px solid rgba(255, 255, 255, .2);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 44px;
+
+}
+
+.search-form__btn-input {
+  background-color: #4285F4;
+  border: none;
+  border-radius: 48px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 8px 12px;
+}
+
+.search-form__input {
+  outline: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  color: #8B8B8B;
+  width: 100%;
+  padding-right: 10px;
+}
+
+.search-form__container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 43px;
+  margin: 0 4px;
+  border-bottom: 1px solid rgba(170, 170, 170, .2);;
+}
+
+.search-form__btn-description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  color: #FFFFFF;
+  padding-right: 13px;
+  margin: 0;
+}
+
+.search-form__tumb {
+  width: 36px;
+  height: 20px;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+  background-color: #3DDC84;
+  padding-left: 18px;
+  transition: .2s;
+}
+
+/* сделать анимацию не при помощи ховера, а при клике в js будет заменяться класс нэйм*/
+.search-form__tumb:hover {
+  padding-left: 2px;
+  background-color: #EBEBEB;
+}
+
+.search-form__tumb-circle {
+  background-color: #FFF;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 768px) {
+  .search-form__input {
+    font-size: 14px;
+  }
+  
+  .search-form__btn-description {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .search-form {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 83px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(170, 170, 170, .2);;
+  }
+
+  .search-form__input-container {
+    margin: 0 41px 0 0;
+    width: 100%;
+  }
+
+  .search-form__container {
+    border: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+}

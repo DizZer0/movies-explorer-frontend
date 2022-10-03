@@ -1,0 +1,51 @@
+.promo {
+  background-color: #073042;
+  padding: 142px 0 180px;
+}
+
+.promo__logo {
+  background-image: url(../../../images/promoLogo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  min-height: 248px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.promo__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 31px;
+  color: white;
+  margin: auto 10px;
+  line-height: 126%;
+  letter-spacing: -0.04em;
+  max-width: 730px;
+}
+
+@media (min-width: 768px) {
+  .promo {
+    padding: 224px 0 240px;
+  }
+
+  .promo__logo {
+    min-height: 320px;
+  }
+
+  .promo__title{
+    font-size: 50px;
+    line-height: 116%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .promo {
+    padding: 82px 0 122px;
+  }
+}
+
+
