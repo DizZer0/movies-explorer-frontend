@@ -38,6 +38,8 @@
 }
 
 .movies-card__save-btn {
+  min-width: 100px;
+  min-height: 29px;
   border: none;
   border-radius: 30px;
   background-color: #313131;

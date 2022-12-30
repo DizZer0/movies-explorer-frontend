@@ -21,6 +21,11 @@
   list-style: none;
   text-decoration-line: underline;
   color: #FFFFFF;
+  transition: .2s;
+}
+
+.nav-tab__link:hover {
+  opacity: .85;
 }
 
 .nav-tab__link:last-child {

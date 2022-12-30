@@ -5,8 +5,12 @@ import Profile from '../Profile/Profile'
 import Login from '../FormAuth/Login/Login';
 import Register from '../FormAuth/Register/Register';
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import moviesApi from '../../utils/MoviesApi';
+
+import React from 'react';
 
 function App() {
+
   return (
     <div className="App">
       <Routes>

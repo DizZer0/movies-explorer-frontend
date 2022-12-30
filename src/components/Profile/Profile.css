@@ -36,6 +36,7 @@
 
 .profile__inner-container_border {
   border-bottom: 1px solid rgb(66, 66, 66);
+  margin-bottom: 17px;
 }
 
 .profile__notation {
@@ -44,7 +45,9 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
+  margin: 0;
   color: #FFFFFF;
+  padding-bottom: 17px;
 }
 
 .profile__user-data {
@@ -54,6 +57,8 @@
   font-size: 11px;
   line-height: 13px;
   color: #FFFFFF;
+  margin: 0;
+  padding-bottom: 17px;
 }
 
 .profile__btn {
@@ -67,6 +72,11 @@
   line-height: 15px;
   color: #FFFFFF;
   padding-bottom: 16px;
+  transition: .2s;
+}
+
+.profile__btn:hover {
+  opacity: .8;
 }
 
 .profile__btn_red {
@@ -76,15 +86,15 @@
 
 @media (min-width: 768px) {
   .profile {
-    padding: 236px 179px 0;
+    padding: 230px 179px 0;
   }
 
   .profile__title {
-    padding-bottom: 90px;
+    padding-bottom: 100px;
   }
 
   .profile__btn-container {
-    padding-top: 210px;
+    padding-top: 195px;
     position: relative;
     padding-bottom: 40px;
   }
@@ -104,6 +114,6 @@
   }
 
   .profile__btn-container {
-    padding-top: 220px;
+    padding-top: 208px;
   }
 }

@@ -18,6 +18,10 @@
   color: #FFFFFF;
 }
 
+.movies__more-btn_invisible {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .movies {
     padding: 60px 30px 80px;

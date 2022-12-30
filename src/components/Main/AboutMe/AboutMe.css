@@ -75,6 +75,11 @@
   text-align: start;
   padding-bottom: 70px;
   text-decoration: none;
+  transition: .2s;
+}
+
+.about-me__github:hover {
+  opacity: .85;
 }
 
 .about-me__portfolio {
@@ -102,6 +107,11 @@
   border-bottom: 1px solid #E6E6E6;
   padding-bottom: 19px;
   margin-bottom: 20px;
+  transition: .2s;
+}
+
+.about-me__item:hover {
+  opacity: .8;
 }
 
 .about-me__item:last-child {
