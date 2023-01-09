@@ -5,10 +5,18 @@ import { Link } from 'react-router-dom';
 import NavigationPopup from '../NavigationPopup/NavigationPopup';
 
 function Navigation(props) {
+  const [navPopupOn, setNavPopupOn] = React.useState(false)
+
+  function handleClickStatePopup() {
+    console.log('click')
+    setNavPopupOn(!navPopupOn)
+  }
+
+
   return (
     <nav className={props.isMain ? 'nav nav_main' : 'nav'}> 
-      <NavigationPopup />
-      <img src={logo} className="nav__logo" alt="три полоски меню"/>
+      <NavigationPopup navPopupOn={navPopupOn} handleClickStatePopup={handleClickStatePopup}/>
+      <Link className="nav__logo" to="/"/>
       {props.isMain ? (
         <div className='nav__main-container'> 
           <Link className='nav__link-reg' to='/signup'>Регистрация</Link>
@@ -21,7 +29,7 @@ function Navigation(props) {
             <Link className='nav__link' to="/saved-movies" >Сохранённые фильмы</Link>
           </div> 
           <Link className='nav__profile-link' to="/profile" >Аккаунт</Link>
-          <button className='nav__burger-btn'/>
+          <button className='nav__burger-btn' onClick={handleClickStatePopup}/>
         </>
       )}   
     </nav>

@@ -4,9 +4,14 @@ import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile'
 import Login from '../FormAuth/Login/Login';
 import Register from '../FormAuth/Register/Register';
+import NotFound from '../NotFound/NotFound';
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import moviesApi from '../../utils/MoviesApi';
+
+import React from 'react';
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
@@ -16,6 +21,7 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/signin' element={<Login />} />
         <Route path='/signup' element={<Register />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

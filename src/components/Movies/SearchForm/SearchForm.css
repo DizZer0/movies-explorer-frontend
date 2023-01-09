@@ -18,7 +18,7 @@
   background-color: #4285F4;
   border: none;
   border-radius: 48px;
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -33,7 +33,7 @@
   background: none;
   border: none;
   padding: 0;
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
@@ -41,6 +41,10 @@
   color: #8B8B8B;
   width: 100%;
   padding-right: 10px;
+}
+
+.search-form__input_error::placeholder {
+  color: red;
 }
 
 .search-form__container {
@@ -52,7 +56,7 @@
 }
 
 .search-form__btn-description {
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
@@ -68,15 +72,16 @@
   border: none;
   border-radius: 20px;
   padding: 0;
-  background-color: #3DDC84;
-  padding-left: 18px;
+  background-color: #EBEBEB;
+  box-sizing: border-box;
+  padding-left: 2px;
   transition: .2s;
 }
 
 /* сделать анимацию не при помощи ховера, а при клике в js будет заменяться класс нэйм*/
-.search-form__tumb:hover {
-  padding-left: 2px;
-  background-color: #EBEBEB;
+.search-form__tumb_on {
+  padding-left: 18px;
+  background-color: #3DDC84;
 }
 
 .search-form__tumb-circle {

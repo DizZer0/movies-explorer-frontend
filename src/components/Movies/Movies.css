@@ -1,6 +1,7 @@
 .movies {
   padding: 60px 10px 80px;
   background-color: #202020;
+  flex-grow: 1;
 }
 
 .movies__more-btn {
@@ -9,13 +10,17 @@
   border: 1px solid #424242;
   border-radius: 5px;
   background-color: #202020;
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
   text-align: center;
   color: #FFFFFF;
+}
+
+.movies__more-btn_invisible {
+  display: none;
 }
 
 @media (min-width: 768px) {

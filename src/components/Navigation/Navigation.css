@@ -13,7 +13,7 @@
 }
 
 .nav__link {
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -21,7 +21,13 @@
   color: #FFFFFF;
   padding-right: 16px;
   text-decoration: none;
+  transition: .2s;
 }
+
+.nav__link:hover {
+  opacity: .85;
+}
+
 .nav__link:last-child {
   padding-right: 0;
 }
@@ -32,7 +38,7 @@
 }
 
 .nav__link-reg {
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
@@ -40,10 +46,15 @@
   color: #FFFFFF;
   text-decoration: none;
   padding-right: 14px;
+  transition: .2s;
+}
+
+.nav__link-reg:hover {
+  opacity: .85;
 }
 
 .nav__link-log {
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
@@ -53,11 +64,23 @@
   background-color: #3DDC84;
   border-radius: 3px;
   padding: 5px 12px;
+  transition: .2s;
+}
+
+.nav__link-log:hover {
+  opacity: .85;
+}
+
+.nav__logo {
+  background-image: url('../../images/logo.svg');
+  background-repeat: no-repeat;
+  height: 38px;
+  width: 38px;
 }
 
 .nav__profile-link {
   display: none;
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -70,6 +93,11 @@
   border-radius: 20px;
   padding: 0 22px;
   height: 32px;
+  transition: .2s;
+}
+
+.nav__profile-link:hover {
+  opacity: .8;
 }
 
 .nav__burger-btn {
@@ -82,11 +110,17 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  transition: .2s;
+}
+
+.nav__burger-btn {
+  opacity: .85;
 }
 
 @media (min-width: 768px) {
   .nav {
     padding: 18px 30px;
+    
   }
   .nav__burger-btn {
     width: 44px;
@@ -95,14 +129,26 @@
 }
 
 @media (min-width: 1280px) {
+  .nav {
+    padding: 18px 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .nav__container {
+    justify-self: center;
     display: flex;
     align-items: center;
   }
 
+  .nav__main-container {
+    grid-column: 3 / 4;
+    justify-self: end;
+  }
+
   .nav__profile-link {
     display: flex;
-
+    justify-self: flex-end;
   }
 
   .nav__burger-btn {

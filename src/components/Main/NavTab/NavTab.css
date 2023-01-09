@@ -13,7 +13,7 @@
 
 .nav-tab__link {
   padding-right: 24px;
-  font-family: 'Inter';
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -21,6 +21,11 @@
   list-style: none;
   text-decoration-line: underline;
   color: #FFFFFF;
+  transition: .2s;
+}
+
+.nav-tab__link:hover {
+  opacity: .85;
 }
 
 .nav-tab__link:last-child {

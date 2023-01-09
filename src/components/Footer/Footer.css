@@ -4,7 +4,7 @@
 }
 
 .footer__title {
-  font-family: 'Inter';
+  mily: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -22,7 +22,7 @@
 
 .footer__link {
   display: block;
-  font-family: 'Inter';
+  mily: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -30,6 +30,11 @@
   color: #FFFFFF;
   text-decoration: none;
   padding-bottom: 12px;
+  transition: .2s;
+}
+
+.footer__link:hover {
+  opacity: .85;
 }
 
 .footer__link:last-child {
@@ -38,7 +43,7 @@
 
 .footer__year {
   margin: 0;
-  font-family: 'Inter';
+  mily: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
