@@ -79,11 +79,13 @@ function MoviesCardList(props) {
   }, [])
 
   return (
-    <div className="card-list">
-      {movieList === null ? '' :movieList.slice(0, initialNumberCard).map((card) => {
-        return <MoviesCard key={card.id} name={card.nameRU} duration={card.duration} image={card.image.url} />
-      })}
-    </div>
+    <section className="card-list">
+      <ul className='card-list__list'>
+        {movieList === null ? '' :movieList.slice(0, initialNumberCard).map((card) => {
+          return <MoviesCard key={card.id} name={card.nameRU} duration={card.duration} image={card.image.url} />
+        })}
+      </ul>
+    </section>
   );
 };
 

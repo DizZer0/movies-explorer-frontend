@@ -5,9 +5,9 @@ function Login() {
   
 
   return (
-    <div className='login'>
+    <section className='login'>
       <form className="form-auth">
-        <img className="form-auth__img" src={logo}/>
+        <img className="form-auth__img" src={logo} alt='логотип в виде буквы s в зеленом круге'/>
         <h2 className="form-auth__title">Рады видеть!</h2>
         <fieldset className="form-auth__fieldset">
           <label className='form-auth__input-subtitle'>E-mail</label>
@@ -23,7 +23,7 @@ function Login() {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }; 
 

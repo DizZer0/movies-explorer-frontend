@@ -1,14 +1,23 @@
 .card-list {
   padding: 40px 0 80px;
+}
+
+.card-list__list {
+  list-style: none;
   display: grid;
   grid-template-columns: 300px;
   justify-content: center;
   grid-gap: 16px;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
   .card-list {
     padding: 70px 0 80px;
+  }
+
+  .card-list__list {
     grid-template-columns: repeat(2, 342px);
     grid-gap: 35px 24px;
   }
@@ -17,6 +26,9 @@
 @media (min-width: 1280px) {
   .card-list {
     padding: 70px 0 60px;
+  }
+
+  .card-list__list {
     grid-template-columns: repeat(3, 360px);
     grid-gap: 32px 30px;
   }

@@ -33,12 +33,12 @@ function handleClickMoreBtn() {
   return (
     <>
       <Header />    
-      <div className="movies">
+      <section className="movies">
         <SearchForm submitSearchForm={submitSearchForm}/>
         {/*<Preloader /> */}
         <MoviesCardList  searchInputValue={searchInputValue} isShortFilm={isShortFilm} valueMoreBtn={valueMoreBtn} renderMoreBtn={renderMoreBtn}/>
         <button className={`movies__more-btn ${moreBtn ? 'movies__more-btn_invisible' : ''}`} onClick={handleClickMoreBtn}>Ещё</button>
-      </div>
+      </section>
       <Footer />
     </>
   );

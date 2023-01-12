@@ -4,7 +4,7 @@
 }
 
 .footer__title {
-  mily: 'Inter';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -22,7 +22,7 @@
 
 .footer__link {
   display: block;
-  mily: 'Inter';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -43,7 +43,7 @@
 
 .footer__year {
   margin: 0;
-  mily: 'Inter';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

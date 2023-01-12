@@ -1,9 +1,8 @@
 import myPhoto from '../../../images/my-photo.png'
-import linkArrow from '../../../images/linkArrow.svg'
 
 function AboutMe() {
   return (
-    <div className="about-me" id='aboutMe'>
+    <section className="about-me" id='aboutMe'>
       <h3 className="about-me__title">Студент</h3>
       <div className='about-me__container'>
         <img className="about-me__img" src={myPhoto} alt="фотография человека" />
@@ -20,18 +19,15 @@ function AboutMe() {
       <ul className="about-me__links-site">
         <li className="about-me__item">
           <a className="about-me__link" target="_blank" href="https://github.com/DizZer0/how-to-learn">Статичный сайт</a>
-          <p className='about-me__link-arrow'>↗</p>
         </li>
         <li className="about-me__item">
           <a className="about-me__link" target="_blank" href="https://github.com/DizZer0/russian-travel">Адаптивный сайт</a>
-          <p className='about-me__link-arrow'>↗</p>
         </li>
         <li className="about-me__item">
           <a className="about-me__link" target="_blank" href="https://github.com/DizZer0/react-mesto-api-full">Одностраничное приложение</a>
-          <p className='about-me__link-arrow'>↗</p>
         </li>
       </ul>
-    </div>
+    </section>
   );
 };
 

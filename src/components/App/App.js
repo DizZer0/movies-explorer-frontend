@@ -5,8 +5,8 @@ import Profile from '../Profile/Profile'
 import Login from '../FormAuth/Login/Login';
 import Register from '../FormAuth/Register/Register';
 import NotFound from '../NotFound/NotFound';
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import moviesApi from '../../utils/MoviesApi';
+import { Routes, Route } from 'react-router-dom'
+//import moviesApi from '../../utils/MoviesApi';
 
 import React from 'react';
 

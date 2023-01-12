@@ -6,7 +6,7 @@ function Profile() {
     return (
       <>
         <Header />
-        <div className="profile">
+        <section className="profile">
           <h2 className="profile__title">Привет, пользователь!</h2>
           <div className="profile__inner-container profile__inner-container_border">
               <p className="profile__notation">Имя</p>
@@ -20,7 +20,7 @@ function Profile() {
               <button className="profile__btn">Редактировать</button>
               <button className="profile__btn profile__btn_red">Выйти из аккаунта</button>
           </div>
-        </div>
+        </section>
       </>
     );
 };

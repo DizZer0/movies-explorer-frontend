@@ -39,9 +39,9 @@ function Register() {
   }
 
   return (
-    <div className='register'>
+    <section className='register'>
       <form className="form-auth" noValidate>
-        <img className="form-auth__img" src={logo}/>
+        <img className="form-auth__img" src={logo} alt='логотип в виде буквы s в зеленом круге'/>
         <h2 className="form-auth__title">Добро пожаловать!</h2>
         <fieldset className="form-auth__fieldset">
           <label className='form-auth__input-subtitle'>имя</label>
@@ -62,7 +62,7 @@ function Register() {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }; 
 

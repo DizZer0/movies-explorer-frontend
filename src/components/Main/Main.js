@@ -11,14 +11,14 @@ function Main() {
   return (
     <>
       <Header isMain={true} />
-      <div className="Main">
+      <main className="Main">
         <Promo />
         <NavTab />
         <AboutProject />
         <Techs />
         <AboutMe />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 }

@@ -102,10 +102,7 @@
 }
 
 .about-me__item {
-  display: flex;
-  justify-content: space-between;
   border-bottom: 1px solid #E6E6E6;
-  padding-bottom: 19px;
   margin-bottom: 20px;
   transition: .2s;
 }
@@ -130,17 +127,9 @@
   color: #FFFFFF;
   text-decoration: none;
   text-align: start;
-}
-
-.about-me__link-arrow {
-  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.04em;
-  color: #FFFFFF;
-  margin: 0;
+  background: url(../../../images/linkArrow.svg) no-repeat right top 7px;
+  background-size: 11px;
+  padding-bottom: 19px;
 }
 
 @media (min-width: 768px) {
@@ -210,11 +199,8 @@
   .about-me__link {
     font-size: 28px;
     line-height: 50px;
-  }
-
-  .about-me__link-arrow {
-    font-size: 28px;
-    line-height: 60px;
+    background-size: 16px;
+    background-position: right top 14px;
   }
 }
 
@@ -252,9 +238,7 @@
 
   .about-me__link {
     font-size: 30px;
+    background-size: 18px;
   }
 
-  .about-me__link-arrow {
-    font-size: 30px;
-  }
 }

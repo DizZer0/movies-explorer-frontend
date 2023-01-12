@@ -76,6 +76,11 @@
   background-repeat: no-repeat;
   height: 38px;
   width: 38px;
+  transition: .2s;
+}
+
+.nav__logo:hover {
+  opacity: .85;
 }
 
 .nav__profile-link {
@@ -111,26 +116,16 @@
   background-position: center;
   background-size: cover;
   transition: .2s;
+  cursor: pointer;
 }
 
-.nav__burger-btn {
+.nav__burger-btn:hover {
   opacity: .85;
 }
 
 @media (min-width: 768px) {
   .nav {
     padding: 18px 30px;
-    
-  }
-  .nav__burger-btn {
-    width: 44px;
-    height: 44px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .nav {
-    padding: 18px 70px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -154,4 +149,12 @@
   .nav__burger-btn {
     display: none;
   }
+}
+
+@media (min-width: 1280px) {
+  .nav {
+    padding: 18px 70px;
+  }
+
+  
 }

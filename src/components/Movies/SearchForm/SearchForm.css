@@ -11,7 +11,11 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 44px;
+  transition: .3s;
+}
 
+.search-form__input-container:focus-within {
+  border: 1.5px solid rgba(255, 255, 255, .8);
 }
 
 .search-form__btn-input {
@@ -26,6 +30,12 @@
   text-align: center;
   color: #FFFFFF;
   padding: 8px 12px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.search-form__btn-input:hover {
+  opacity: .8;
 }
 
 .search-form__input {
@@ -42,6 +52,8 @@
   width: 100%;
   padding-right: 10px;
 }
+
+
 
 .search-form__input_error::placeholder {
   color: red;
@@ -76,6 +88,7 @@
   box-sizing: border-box;
   padding-left: 2px;
   transition: .2s;
+  cursor: pointer;
 }
 
 /* сделать анимацию не при помощи ховера, а при клике в js будет заменяться класс нэйм*/
