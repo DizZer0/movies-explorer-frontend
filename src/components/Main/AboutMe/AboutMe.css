@@ -1,0 +1,244 @@
+.about-me {
+  background-color: #202020;
+  padding: 70px 14px;
+}
+
+.about-me__title {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  text-align: start;
+  border-bottom: 1px solid #DADADA;
+  margin: 0 0 60px;
+  padding-bottom: 28px;
+}
+
+.about-me__img {
+  object-fit: cover;
+  object-position: center;
+  width: 292px;
+  height: 352px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.about-me__my-name {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.about-me__status {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 145%;
+  color: #FFFFFF;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.about-me__text {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 145%;
+  color: #FFFFFF;
+  mix-blend-mode: normal;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+.about-me__github {
+  display: block;
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  text-align: start;
+  padding-bottom: 70px;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.about-me__github:hover {
+  opacity: .85;
+}
+
+.about-me__portfolio {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #A0A0A0;
+  mix-blend-mode: normal;
+  text-align: start;
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+.about-me__links-site {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-me__item {
+  border-bottom: 1px solid #E6E6E6;
+  margin-bottom: 20px;
+  transition: .2s;
+}
+
+.about-me__item:hover {
+  opacity: .8;
+}
+
+.about-me__item:last-child {
+  border: none;
+  padding: 0;
+}
+
+.about-me__link {
+  display: block;
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 156%;
+  letter-spacing: -0.04em;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-align: start;
+  background: url(../../../images/linkArrow.svg) no-repeat right top 7px;
+  background-size: 11px;
+  padding-bottom: 19px;
+}
+
+@media (min-width: 768px) {
+  .about-me {
+    padding: 90px 50px;
+  }
+
+  .about-me__title {
+    margin: 0 0 66px;
+    padding-bottom: 23px;
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .about-me__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-bottom: 90px;
+  }
+
+  .about-me__img {
+    margin: 0;
+    width: 255px;
+    height: 307px;
+  }
+
+  .about-me__inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+    padding-right: 50px;
+  }
+  .about-me__my-name {
+    padding-bottom: 16px;
+    font-size: 40px;
+    line-height: 100%;
+  }
+
+  .about-me__status {
+    font-size: 12px;
+    line-height: 150%;
+    mix-blend-mode: normal;
+  }
+
+  .about-me__text {
+    padding-bottom: 0;
+    font-size: 12px;
+    line-height: 150%;
+    mix-blend-mode: normal;
+  }
+
+  .about-me__github { 
+    padding-bottom: 0 ;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .about-me__portfolio {
+    padding-bottom: 50px;
+    font-size: 18px;
+    line-height: 111%;
+    mix-blend-mode: normal;
+  }
+
+  .about-me__link {
+    font-size: 28px;
+    line-height: 50px;
+    background-size: 16px;
+    background-position: right top 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-me {
+    padding: 110px 70px 125px;
+  }
+
+  .about-me__my-name {
+    padding-bottom: 18px;
+    font-size: 50px;
+    line-height: 58px;
+  }
+
+  .about-me__status {
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 26px;
+  }
+
+  .about-me__text {
+    font-size: 14px;
+    line-height: 22px;
+    mix-blend-mode: normal;
+  }
+
+  .about-me__img {
+    width: 270px;
+    height: 327px;
+  }
+
+  .about-me__container {
+    padding-bottom: 100px;
+  }
+
+  .about-me__link {
+    font-size: 30px;
+    background-size: 18px;
+  }
+
+}
