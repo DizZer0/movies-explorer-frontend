@@ -1,0 +1,64 @@
+.not-found {
+  background-color: #202020;
+  flex-grow: 1;
+  padding-top: 40vh;
+}
+
+.not-found__title {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 97px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.not-found__error-text {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.not-found__btn {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #4285F4;
+  background: none;
+  border: none;
+  padding-top: 284px;
+}
+
+.not-found__btn:hover {
+  transition: .2s;
+  opacity: .8;
+}
+
+@media (min-width: 768px) {
+  .not-found__title {
+    font-size: 140px;
+    line-height: 169px;
+  }
+
+  .not-found__error-text {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .not-found__btn {
+    font-size: 14px;
+    line-height: 17px;
+    padding-top: 184px;
+  }
+}
