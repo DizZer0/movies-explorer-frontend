@@ -12,6 +12,26 @@
   padding: 0;
 }
 
+.card-list__more-btn {
+  width: 240px;
+  padding: 10px 20px 9px;
+  border: 1px solid #424242;
+  border-radius: 5px;
+  background-color: #202020;
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.card-list__more-btn_invisible {
+  display: none;
+}
+
+
 @media (min-width: 768px) {
   .card-list {
     padding: 70px 0 80px;
@@ -20,6 +40,10 @@
   .card-list__list {
     grid-template-columns: repeat(2, 342px);
     grid-gap: 35px 24px;
+  }
+
+  .card-list__more-btn {
+    width: 320px;
   }
 }
 

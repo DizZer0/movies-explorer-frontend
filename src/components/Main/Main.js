@@ -7,10 +7,10 @@ import Footer from '../Footer/Footer'
 import Header from '../Header/Header';
 
 
-function Main() {
+function Main(props) {
   return (
     <>
-      <Header isMain={true} />
+      <Header loggedIn={props.loggedIn} isMain={true} />
       <main className="Main">
         <Promo />
         <NavTab />

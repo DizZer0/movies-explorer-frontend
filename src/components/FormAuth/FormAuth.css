@@ -71,10 +71,6 @@
 }
 
 .form-auth__error-text {
-  display: none;
-}
-
-.form-auth__error-text {
   font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -100,6 +96,10 @@
   text-align: center;
   color: #FFFFFF;
   transition: .2s;
+}
+
+.form-auth__btn_disabled {
+  opacity: .8;
 }
 
 .form-auth__btn:hover {
