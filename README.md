@@ -1,6 +1,6 @@
 https://www.figma.com/file/vDr9EoNTtb5v19yLjLo3TB/Diplom_practicum?node-id=891%3A3857&t=rcNzkrOtfic6Rewp-0
 
-ссылка на пулл реквест https://github.com/DizZer0/movies-explorer-frontend/tree/level-3
+ссылка на пулл реквест https://github.com/DizZer0/movies-explorer-frontend/pull/3
 
 ссылка на сайт http://dizzero.diplom.nomoredomainsclub.ru
 
