@@ -49,15 +49,18 @@ class MainApi {
     return fetch(`${this._baseUrl}/movies/${data}`, {
       method: 'DELETE',
       headers: {
+        'Content-Type': 'application/json',
         authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
     }).then((res) => this._parseResponse(res))
   }
 
   getUser() {
+    console.log(localStorage.getItem('jwt'))
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {
+        'Content-Type': 'application/json',
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
       }
     }).then((res) => this._parseResponse(res))
