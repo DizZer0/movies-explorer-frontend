@@ -31,7 +31,7 @@ function Register(props) {
   return (
     <section className='register'>
       <form className="form-auth" noValidate onSubmit={submitForm}>
-        <img className="form-auth__img" src={logo} alt='логотип в виде буквы s в зеленом круге'/>
+        <Link className="form-auth__img" to="/"/>
         <h2 className="form-auth__title">Добро пожаловать!</h2>
         <fieldset className="form-auth__fieldset">
           <label className='form-auth__input-subtitle'>имя</label>

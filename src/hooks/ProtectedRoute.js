@@ -5,7 +5,6 @@ export default function ProtectedRoute({ component: Component, ...props}) {
     console.log('1')
     return <Component {...props} />
   } else {
-    console.log(props.loggedIn)
     return <Navigate to='/' />
   }
 }

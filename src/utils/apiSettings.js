@@ -1,6 +1,6 @@
 const apiSettings = {
   moviesApi: 'https://api.nomoreparties.co/beatfilm-movies',
-  mainApi: 'http://api.mesto.lobachev.nomoredomains.sbs',
+  mainApi: 'http://localhost:3000',
 }
 
 export default apiSettings

@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
-import logo from '../../../images/logo.svg';
 import mainApi from '../../../utils/MainApi'
 
 import useFormWithValidation from '../../../hooks/useFormValidation';
@@ -19,7 +18,7 @@ function Login(props) {
         console.log(res)
         localStorage.setItem('jwt', res.token)
         props.setLoggedIn(true)
-        navigate('/')
+        navigate('/movies')
       })
   }
 
@@ -30,7 +29,7 @@ function Login(props) {
   return (
     <section className='login'>
       <form className="form-auth" noValidate onSubmit={submitForm}>
-        <img className="form-auth__img" src={logo} alt='логотип в виде буквы s в зеленом круге'/>
+      <Link className="form-auth__img" to="/"/>
         <h2 className="form-auth__title">Рады видеть!</h2>
         <fieldset className="form-auth__fieldset">
           <label className='form-auth__input-subtitle'>E-mail</label>

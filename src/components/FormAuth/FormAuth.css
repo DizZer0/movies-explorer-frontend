@@ -7,10 +7,21 @@
   flex-direction: column;
 }
 
+
+
 .form-auth__img {
+  background-image: url('../../images/logo.svg');
+  background-repeat: no-repeat;
+  height: 38px;
   width: 38px;
-  padding-bottom: 50px;
+  transition: .2s;
+  cursor: pointer;
   align-self: center;
+  padding-bottom: 50px;
+}
+
+.form-auth__img:hover {
+  opacity: .85;
 }
 
 .form-auth__title {
