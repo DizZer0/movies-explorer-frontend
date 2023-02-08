@@ -12,8 +12,12 @@ function Profile(props) {
 
   function submitForm(e) {
     e.preventDefault()
-    mainApi.updateUser(values)
+    if(props.userInfo.name === values.name && props.userInfo.email === values.email) {
+      return
+    } else {
+      mainApi.updateUser(values)
       .then(res => props.setUserInfo({name: res.name, email: res.email}))
+    }
   }
 
   function handleClickBtnExit() {
@@ -47,7 +51,7 @@ function Profile(props) {
             </div>
             <span className='profile__error-text'>{errors.email}</span>
             <div className="profile__btn-container">
-                <button className="profile__btn" type='submit'>Редактировать</button>
+                <button className="profile__btn" disabled={!isValid} type='submit'>Редактировать</button>
                 <button className="profile__btn profile__btn_red" type='button' onClick={handleClickBtnExit}>Выйти из аккаунта</button>
             </div>
           </form>
