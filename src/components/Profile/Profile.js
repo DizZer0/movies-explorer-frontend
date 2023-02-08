@@ -28,9 +28,8 @@ function Profile(props) {
   }
 
   React.useEffect(() => {
-    console.log(props.userInfo)
     resetForm(props.userInfo, {}, true)
-  }, [])
+  }, [props])
 
     return (
       <>

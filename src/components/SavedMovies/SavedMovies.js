@@ -17,6 +17,7 @@ function Movies() {
   const [saveMovieList, setSaveMovieList] = React.useState([]);
   const [sortedMovieList, setSortedMovieList] = React.useState([])
   const [isShortValue, setIsShortValue] = React.useState(false)
+  const [inputValue, setInputValue] = React.useState()
 
   const [preloaderOn, setPreloaderOn] = React.useState(false)
   const [serverError, setServerError] = React.useState(false)
@@ -30,6 +31,7 @@ function Movies() {
     console.log(sortedMovies)
     setSortedMovieList(sortedMovies)
     setIsShortValue(isShortValue)
+    setInputValue(inputValue)
   }
 
   function getSaveMovieList() {
@@ -70,6 +72,7 @@ function Movies() {
   }
 
   function switchComponent() {
+    console.log(inputValue)
     if(serverError) {
       return <h2 className="saved-movies__not-found">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</h2>
     }  else if(saveMovieList.length > 0 && preloaderOn === false) {
@@ -77,7 +80,7 @@ function Movies() {
     } else if (preloaderOn === true) {
       return <Preloader />
     } else {
-      return <h2 className="saved-movies__not-found">Ничего не найдено</h2>
+      return inputValue === undefined ? '' :  <h2 className="movies__not-found">Ничего не найдено</h2>
     }
   }
 

@@ -99,10 +99,11 @@ function Movies() {
   }
 
   function switchComponent() {
+    console.log(JSON.parse(localStorage.getItem('searchValue')))
     if(serverError) {
       return <h2 className="movies__not-found">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</h2>
     } else if (sortedMovieList === null || sortedMovieList.length === 0) {
-      return <h2 className="movies__not-found">Ничего не найдено</h2>
+      return JSON.parse(localStorage.getItem('searchValue')) === null ? '' :  <h2 className="movies__not-found">Ничего не найдено</h2>
     } else if(sortedMovieList.length > 0 && preloaderOn === false) {
       return <MoviesCardList movieList={sortingShortValue(sortedMovieList, isShortValue)} saveMovieCard={saveMovieCard} deleteMovieCard={deleteMovieCard}/>
     } else if (preloaderOn === true) {
