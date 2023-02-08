@@ -26,6 +26,12 @@ function Login(props) {
     resetForm()
   }, [resetForm])
 
+  React.useEffect(() => {
+    if(props.loggedIn) {
+      navigate('/')
+    }
+  }, [props.loggedIn])
+
   return (
     <section className='login'>
       <form className="form-auth" noValidate onSubmit={submitForm}>

@@ -7,7 +7,7 @@ import Login from '../FormAuth/Login/Login';
 import Register from '../FormAuth/Register/Register';
 import NotFound from '../NotFound/NotFound';
 import ProtectedRoute from '../../hooks/ProtectedRoute';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 //import moviesApi from '../../utils/MoviesApi';
 
 import React from 'react';
@@ -16,6 +16,8 @@ import mainApi from '../../utils/MainApi';
 function App() {
   const [userInfo, setUserInfo] = React.useState()
   const [loggedIn, setLoggedIn] = React.useState(true)
+
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     console.log(loggedIn)
@@ -34,8 +36,8 @@ function App() {
           <Route path='/movies' element={<ProtectedRoute component={Movies} loggedIn={loggedIn} />} />
           <Route path='/saved-movies' element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} />} />
           <Route path='/profile' element={<ProtectedRoute component={Profile} userInfo={userInfo} setUserInfo={setUserInfo} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-          <Route path='/signin' element={<Login setLoggedIn={setLoggedIn}  />} />
-          <Route path='/signup' element={<Register setLoggedIn={setLoggedIn} />} />
+          <Route path='/signin' element={<Login setLoggedIn={setLoggedIn}  loggedIn={loggedIn}/>}/>
+          <Route path='/signup' element={<Register setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>}/>
           <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

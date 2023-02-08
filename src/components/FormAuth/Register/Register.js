@@ -27,6 +27,12 @@ function Register(props) {
   React.useEffect(() => {
     resetForm()
   }, [resetForm])
+
+  React.useEffect(() => {
+    if(props.loggedIn) {
+      navigate('/')
+    }
+  }, [props.loggedIn])
   
   return (
     <section className='register'>
