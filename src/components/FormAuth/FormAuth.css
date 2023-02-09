@@ -110,6 +110,7 @@
 }
 
 .form-auth__btn_disabled {
+  background-color: #4b4b4b;
   opacity: .8;
 }
 

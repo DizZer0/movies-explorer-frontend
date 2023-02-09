@@ -13,6 +13,7 @@ function Login(props) {
 
   const navigate = useNavigate()
 
+  const [isDisabled, setIsDisabled] = React.useState(false)
   const [pushNotificationValue, setPushNotificationValue] = React.useState({
     isActive: false,
     isSuccessful: false
@@ -37,7 +38,8 @@ function Login(props) {
 
   function submitForm(e) {
     e.preventDefault()
-    console.log(values)
+    setIsDisabled(true)
+
     mainApi.signIn(values)
       .then(res => {
         console.log(res)
@@ -45,9 +47,11 @@ function Login(props) {
         props.setLoggedIn(true)
         navigate('/movies')
         setPushNotificationValue(openPushNotification(true))
+        setIsDisabled(false)
       })
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
+        setIsDisabled(false)
       })
   }
 
@@ -62,14 +66,14 @@ function Login(props) {
         <h2 className="form-auth__title">Рады видеть!</h2>
         <fieldset className="form-auth__fieldset">
           <label className='form-auth__input-subtitle'>E-mail</label>
-          <input className="form-auth__input" name='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' required type='email' onChange={handleChange}/>
+          <input className="form-auth__input" name='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' disabled={isDisabled ? 'disabled' : ''} required type='email' onChange={handleChange}/>
           <span className='form-auth__error-text'>{errors.email}</span>
           <label className='form-auth__input-subtitle'>Пароль</label>
-          <input className="form-auth__input" name='password' required type='password'  onChange={handleChange}/>
+          <input className="form-auth__input" name='password' disabled={isDisabled ? 'disabled' : ''} required type='password'  onChange={handleChange}/>
           <span className='form-auth__error-text'>{errors.password}</span>
         </fieldset>
         <div className="form-auth__container">
-          <button className={`form-auth__btn ${isValid ? "" : 'form-auth__btn_disabled'}`} disabled={!isValid}>Войти</button>  
+          <button className={`form-auth__btn ${isValid ? "" : 'form-auth__btn_disabled'}`} disabled={!isValid || isDisabled}>Войти</button>  
           <div className='form-auth__link-container'>
             <p className="form-auth__link-subtitle">Ещё не зарегистрированы?</p>
             <Link to='/signup' className="form-auth__link">Регистрация</Link>

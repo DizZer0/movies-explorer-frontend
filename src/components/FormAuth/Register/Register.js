@@ -12,6 +12,7 @@ function Register(props) {
   const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
   const navigate = useNavigate()
 
+  const [isDisabled, setIsDisabled] = React.useState(false)
   const [pushNotificationValue, setPushNotificationValue] = React.useState({
     isActive: false,
     isSuccessful: false
@@ -36,7 +37,8 @@ function Register(props) {
 
   function submitForm(e) {
     e.preventDefault()
-    console.log(values)
+    setIsDisabled(true)
+
     mainApi.signUp(values)
       .then(res => {
         setPushNotificationValue(openPushNotification(true))
@@ -46,12 +48,15 @@ function Register(props) {
             props.setLoggedIn(true)
             navigate('/')
             setPushNotificationValue(openPushNotification(true))
+            setIsDisabled(false)
           })
           .catch(() => {
             setPushNotificationValue(openPushNotification(false))
+            setIsDisabled(false)
           })
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
+        setIsDisabled(false)
       })
       })
   }
