@@ -33,7 +33,9 @@ function MoviesCard(props) {
           <h2 className="movies-card__title">{props.name}</h2>
           <p className="movies-card__duration">{`${props.duration} минут`}</p>
         </div>
-        <img className="movies-card__preview" src={props.image} alt="Превью фильма"/>
+        <a className='movies-card__preview-link' href={`${props.trailerLink}`} target='_blank' rel="noreferrer">
+          <img className="movies-card__preview" src={props.image} alt="Превью фильма"/>
+        </a>
         <button className={`movies-card__save-btn ${switchStatusBtn()}`} onClick={handleSaveBtn}>{!isActiveSaveBtn && location === '/movies' ? 'Сохранить' : ''}</button>
       </article>
     </li>

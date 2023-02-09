@@ -72,8 +72,9 @@ function MoviesCardList(props) {
               name={card.nameRU} 
               duration={card.duration} 
               image={location === '/movies' ? `https://api.nomoreparties.co${card.image.url}` : card.image} 
+              trailerLink={card.trailerLink}     
               saveMovieCard={props.saveMovieCard}
-              deleteMovieCard={props.deleteMovieCard}
+              deleteMovieCard={props.deleteMovieCard}       
             />
         })}
       </ul>
