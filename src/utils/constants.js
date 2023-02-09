@@ -1,6 +1,6 @@
 
 const MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies'
-const MAIN_URL = 'http://localhost:3000'
+const MAIN_URL = 'http://api.mesto.lobachev.nomoredomains.sbs'
 
 const DURATION_SHORTMOVIES = 40
 
