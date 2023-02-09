@@ -1,8 +1,8 @@
-import apiSettings from "./apiSettings";
+import { MOVIES_URL } from "./constants";
 
 class MoviesApi {
-  constructor({ apiSettings }) {
-    this._baseUrl = apiSettings.moviesApi;
+  constructor(apiUrl) {
+    this._baseUrl = apiUrl;
   }
   
   _parseResponse(res) {
@@ -20,5 +20,5 @@ class MoviesApi {
   }
 }
 
-const moviesApi = new MoviesApi({apiSettings});
+const moviesApi = new MoviesApi(MOVIES_URL);
 export default moviesApi;

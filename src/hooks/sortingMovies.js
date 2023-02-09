@@ -1,5 +1,8 @@
+import { DURATION_SHORTMOVIES } from '../utils/constants'
+
 export default function sortingMovies() {
   const sortingMoviesList = (movieList, saveMovieList, inputValue) => {
+
     const sortMovieList = []
     const regex = new RegExp(inputValue)
     movieList.forEach((item) => {
@@ -33,7 +36,7 @@ export default function sortingMovies() {
     const sortMovieList = []
 
     movieList.forEach((item) => {
-      if(item.duration <= 40 || !isShortValue) {
+      if(item.duration <= DURATION_SHORTMOVIES || !isShortValue) {
         sortMovieList.push(item)
       }
     })

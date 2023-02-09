@@ -1,5 +1,8 @@
 import MoviesCard from '../MoviesCard/MoviesCard'
 
+import { DEVICE_PARAMS } from '../../utils/constants'
+
+
 import React from 'react';
 import { useLocation } from 'react-router-dom'
 
@@ -8,7 +11,9 @@ function MoviesCardList(props) {
   const [moreBtn, setMoreBtn] = React.useState(false)
   const [valueMoreBtn, setValueMoreBtn] = React.useState(0)
   const location = useLocation().pathname
-  console.log('log')
+
+  const { desktop, tablet, mobile } = DEVICE_PARAMS
+
   function changeValueMoreBtn() {
     setValueMoreBtn(valueMoreBtn + 1)
   }
@@ -18,12 +23,12 @@ function MoviesCardList(props) {
   }
 
   function changeNumberCard() {
-    if(window.innerWidth >= 1280) {
-      setInitialNumberCard(12 + valueMoreBtn * 3)
-    } else if (window.innerWidth >= 768) {
-      setInitialNumberCard(8 + valueMoreBtn * 2)
+    if(window.innerWidth >= desktop.width) {
+      setInitialNumberCard(desktop.cards.initialValue + valueMoreBtn * desktop.cards.more)
+    } else if (window.innerWidth >= tablet.width) {
+      setInitialNumberCard(tablet.cards.initialValue + valueMoreBtn * tablet.cards.more)
     } else {
-      setInitialNumberCard(5 + valueMoreBtn * 2)
+      setInitialNumberCard(mobile.cards.initialValue + valueMoreBtn * mobile.cards.more)
     }
   }
 

@@ -1,8 +1,8 @@
-import apiSettings from "./apiSettings";
+import { MAIN_URL } from "./constants";
 
 class MainApi {
-  constructor({apiSettings}) {
-    this._baseUrl = apiSettings.mainApi
+  constructor(apiUrl) {
+    this._baseUrl = apiUrl
   }
 
   _parseResponse(res) {
@@ -109,5 +109,5 @@ class MainApi {
   }
 };
 
-const mainApi = new MainApi({apiSettings});
+const mainApi = new MainApi(MAIN_URL);
 export default mainApi;
