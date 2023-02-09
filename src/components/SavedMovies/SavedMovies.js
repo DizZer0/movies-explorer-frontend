@@ -4,6 +4,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Header from "../Header/Header";
+import PushNotification from "../PushNotification/PushNotification";
 
 import sortingMovies from "../../hooks/sortingMovies";
 
@@ -21,6 +22,28 @@ function Movies() {
 
   const [preloaderOn, setPreloaderOn] = React.useState(false)
   const [serverError, setServerError] = React.useState(false)
+
+  const [pushNotificationValue, setPushNotificationValue] = React.useState({
+    isActive: false,
+    isSuccessful: false
+  })
+
+  function openPushNotification(isSuccessful) {
+    closedPushNotification(isSuccessful)
+    return {
+      isActive: true,
+      isSuccessful: isSuccessful
+    }
+  }
+
+  function closedPushNotification(isSuccessful) {
+    setTimeout(() => {
+      setPushNotificationValue({
+        isActive: false,
+        isSuccessful: isSuccessful
+      })
+    }, 3000);
+  }
 
   function handleTumbSearchForm(inputValue, isShortValue) {
     setIsShortValue(isShortValue)
@@ -67,8 +90,12 @@ function Movies() {
         getSaveMovieList()
         changeLocalMovielist(res, false)
         setServerError(false)
+        setPushNotificationValue(openPushNotification(true))
       })
-      .catch(err => setServerError(true))
+      .catch(err => {
+        setServerError(true)
+        setPushNotificationValue(openPushNotification(false))
+      })
   }
 
   function switchComponent() {
@@ -97,6 +124,7 @@ function Movies() {
         {switchComponent()}
       </section>
       <Footer />
+      <PushNotification value={pushNotificationValue}/>
     </>
   );
 };

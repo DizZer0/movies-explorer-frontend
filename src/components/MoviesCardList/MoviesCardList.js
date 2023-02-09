@@ -2,7 +2,6 @@ import MoviesCard from '../MoviesCard/MoviesCard'
 
 import { DEVICE_PARAMS } from '../../utils/constants'
 
-
 import React from 'react';
 import { useLocation } from 'react-router-dom'
 
@@ -17,6 +16,7 @@ function MoviesCardList(props) {
   function changeValueMoreBtn() {
     setValueMoreBtn(valueMoreBtn + 1)
   }
+
 
   function renderMoreBtn(bool) {
     setMoreBtn(bool)
