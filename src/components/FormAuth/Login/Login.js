@@ -47,12 +47,11 @@ function Login(props) {
         props.setLoggedIn(true)
         navigate('/movies')
         setPushNotificationValue(openPushNotification(true))
-        setIsDisabled(false)
       })
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
-        setIsDisabled(false)
       })
+    setIsDisabled(false)
   }
 
   React.useEffect(() => {

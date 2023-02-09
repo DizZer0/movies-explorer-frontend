@@ -48,17 +48,15 @@ function Register(props) {
             props.setLoggedIn(true)
             navigate('/')
             setPushNotificationValue(openPushNotification(true))
-            setIsDisabled(false)
           })
           .catch(() => {
             setPushNotificationValue(openPushNotification(false))
-            setIsDisabled(false)
           })
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
-        setIsDisabled(false)
       })
       })
+    setIsDisabled(false)
   }
 
   React.useEffect(() => {
