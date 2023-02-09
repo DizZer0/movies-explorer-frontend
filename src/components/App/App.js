@@ -8,7 +8,6 @@ import Register from '../FormAuth/Register/Register';
 import NotFound from '../NotFound/NotFound';
 import ProtectedRoute from '../../hooks/ProtectedRoute';
 import { Routes, Route, useNavigate } from 'react-router-dom'
-//import moviesApi from '../../utils/MoviesApi';
 
 import React from 'react';
 import mainApi from '../../utils/MainApi';

@@ -89,11 +89,9 @@ function Movies() {
       .then(res => {
         getSaveMovieList()
         changeLocalMovielist(res, false)
-        setServerError(false)
         setPushNotificationValue(openPushNotification(true))
       })
       .catch(err => {
-        setServerError(true)
         setPushNotificationValue(openPushNotification(false))
       })
   }

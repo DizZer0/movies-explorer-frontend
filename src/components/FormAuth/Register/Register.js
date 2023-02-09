@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../../images/logo.svg';
 import React from 'react';
+
+import PushNotification from "../../PushNotification/PushNotification";
+
+
 import mainApi from '../../../utils/MainApi'
 
 import useFormWithValidation from '../../../hooks/useFormValidation';
@@ -8,19 +11,48 @@ import useFormWithValidation from '../../../hooks/useFormValidation';
 function Register(props) {
   const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
   const navigate = useNavigate()
-  console.log(isValid)
+
+  const [pushNotificationValue, setPushNotificationValue] = React.useState({
+    isActive: false,
+    isSuccessful: false
+  })
+
+  function openPushNotification(isSuccessful) {
+    closedPushNotification(isSuccessful)
+    return {
+      isActive: true,
+      isSuccessful: isSuccessful
+    }
+  }
+
+  function closedPushNotification(isSuccessful) {
+    setTimeout(() => {
+      setPushNotificationValue({
+        isActive: false,
+        isSuccessful: isSuccessful
+      })
+    }, 3000);
+  }
 
   function submitForm(e) {
     e.preventDefault()
     console.log(values)
     mainApi.signUp(values)
       .then(res => {
+        setPushNotificationValue(openPushNotification(true))
         mainApi.signIn(values)
           .then(res => {
             localStorage.setItem('jwt', res.token)
             props.setLoggedIn(true)
             navigate('/')
+            setPushNotificationValue(openPushNotification(true))
           })
+          .catch(() => {
+            setPushNotificationValue(openPushNotification(false))
+          })
+      .catch(() => {
+        setPushNotificationValue(openPushNotification(false))
+      })
       })
   }
 
@@ -58,6 +90,7 @@ function Register(props) {
           </div>
         </div>
       </form>
+      <PushNotification value={pushNotificationValue}/>
     </section>
   );
 }; 

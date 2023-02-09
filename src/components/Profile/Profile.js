@@ -1,6 +1,10 @@
 import Header from '../Header/Header';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+
+import PushNotification from "../PushNotification/PushNotification";
+
+
 import mainApi from '../../utils/MainApi'
 
 import useFormWithValidation from '../../hooks/useFormValidation';
@@ -10,13 +14,41 @@ function Profile(props) {
 
   const navigate = useNavigate()
 
+  const [pushNotificationValue, setPushNotificationValue] = React.useState({
+    isActive: false,
+    isSuccessful: false
+  })
+
+  function openPushNotification(isSuccessful) {
+    closedPushNotification(isSuccessful)
+    return {
+      isActive: true,
+      isSuccessful: isSuccessful
+    }
+  }
+
+  function closedPushNotification(isSuccessful) {
+    setTimeout(() => {
+      setPushNotificationValue({
+        isActive: false,
+        isSuccessful: isSuccessful
+      })
+    }, 3000);
+  }
+
   function submitForm(e) {
     e.preventDefault()
     if(props.userInfo.name === values.name && props.userInfo.email === values.email) {
       return
     } else {
       mainApi.updateUser(values)
-      .then(res => props.setUserInfo({name: res.name, email: res.email}))
+      .then(res => {
+        props.setUserInfo({name: res.name, email: res.email})
+        setPushNotificationValue(openPushNotification(true))
+      })
+      .catch(() => {
+        setPushNotificationValue(openPushNotification(false))
+      })
     }
   }
 
@@ -54,6 +86,7 @@ function Profile(props) {
                 <button className="profile__btn profile__btn_red" type='button' onClick={handleClickBtnExit}>Выйти из аккаунта</button>
             </div>
           </form>
+          <PushNotification value={pushNotificationValue}/>
         </section>
       </>
     );
