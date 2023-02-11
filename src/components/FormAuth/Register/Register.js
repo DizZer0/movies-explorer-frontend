@@ -46,7 +46,7 @@ function Register(props) {
           .then(res => {
             localStorage.setItem('jwt', res.token)
             props.setLoggedIn(true)
-            navigate('/')
+            navigate('/movies')
             setPushNotificationValue(openPushNotification(true))
           })
           .catch(() => {
