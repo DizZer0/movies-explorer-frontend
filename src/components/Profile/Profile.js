@@ -1,13 +1,16 @@
-import Header from '../Header/Header';
+
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useContext } from 'react';
+
+import Header from '../Header/Header';
 
 import PushNotification from "../PushNotification/PushNotification";
-
 
 import mainApi from '../../utils/MainApi'
 
 import useFormWithValidation from '../../hooks/useFormValidation';
+
+import { InfoUserContext } from '../../contexts/InfoUserContext';
 
 function Profile(props) {
   const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
@@ -19,6 +22,7 @@ function Profile(props) {
     isActive: false,
     isSuccessful: false
   })
+  const userInfo = useContext(InfoUserContext)
 
   function openPushNotification(isSuccessful) {
     closedPushNotification(isSuccessful)
@@ -41,7 +45,7 @@ function Profile(props) {
     e.preventDefault()
     setIsDisabled(true)
 
-    if(props.userInfo.name !== values.name || props.userInfo.email !== values.email) {
+    if(userInfo.name !== values.name || userInfo.email !== values.email) {
       mainApi.updateUser(values)
       .then(res => {
         props.setUserInfo({name: res.name, email: res.email})
@@ -50,7 +54,7 @@ function Profile(props) {
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
       })
-    } 
+    }
     
     setIsDisabled(false)
   }
@@ -63,8 +67,8 @@ function Profile(props) {
   }
 
   React.useEffect(() => {
-    resetForm(props.userInfo, {}, true)
-  }, [props.userInfo])
+    resetForm(userInfo, {}, true)
+  }, [userInfo])
 
     return (
       <>
