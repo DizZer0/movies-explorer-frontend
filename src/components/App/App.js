@@ -1,3 +1,6 @@
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import React from 'react';
+
 import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -9,10 +12,10 @@ import NotFound from '../NotFound/NotFound';
 import PushNotification from "../PushNotification/PushNotification";
 
 import ProtectedRoute from '../../hooks/ProtectedRoute';
-import { Routes, Route, useNavigate } from 'react-router-dom'
 
-import React from 'react';
 import mainApi from '../../utils/MainApi';
+
+import { InfoUserContext } from '../../contexts/InfoUserContext';
 
 function App() {
   const [userInfo, setUserInfo] = React.useState()
@@ -81,18 +84,20 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Routes>
-          <Route path='/' element={<Main loggedIn={loggedIn} />} />
-          <Route path='/movies' element={<ProtectedRoute component={Movies} loggedIn={loggedIn} />} />
-          <Route path='/saved-movies' element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} />} />
-          <Route path='/profile' element={<ProtectedRoute component={Profile} userInfo={userInfo} setUserInfo={setUserInfo} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-          <Route path='/signin' element={<Login handleLogin={handleLogin}  loggedIn={loggedIn}/>}/>
-          <Route path='/signup' element={<Register handleRegister={handleRegister} loggedIn={loggedIn}/>}/>
-          <Route path='*' element={<NotFound />} />
-      </Routes>
-      <PushNotification value={pushNotificationValue}/>
-    </div>
+    <InfoUserContext.Provider value={userInfo}>
+      <div className="App">
+        <Routes>
+            <Route path='/' element={<Main loggedIn={loggedIn} />} />
+            <Route path='/movies' element={<ProtectedRoute component={Movies} loggedIn={loggedIn} />} />
+            <Route path='/saved-movies' element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} />} />
+            <Route path='/profile' element={<ProtectedRoute component={Profile} setUserInfo={setUserInfo} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+            <Route path='/signin' element={<Login handleLogin={handleLogin}  loggedIn={loggedIn}/>}/>
+            <Route path='/signup' element={<Register handleRegister={handleRegister} loggedIn={loggedIn}/>}/>
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+        <PushNotification value={pushNotificationValue}/>
+      </div>
+    </InfoUserContext.Provider>
   );
 }
 
