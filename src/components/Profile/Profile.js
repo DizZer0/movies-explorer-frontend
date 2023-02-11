@@ -17,7 +17,6 @@ function Profile(props) {
 
   const navigate = useNavigate()
 
-  const [isDisabled, setIsDisabled] = React.useState(false)
   const [pushNotificationValue, setPushNotificationValue] = React.useState({
     isActive: false,
     isSuccessful: false
@@ -43,7 +42,6 @@ function Profile(props) {
 
   function submitForm(e) {
     e.preventDefault()
-    setIsDisabled(true)
 
     if(userInfo.name !== values.name || userInfo.email !== values.email) {
       mainApi.updateUser(values)
@@ -54,9 +52,8 @@ function Profile(props) {
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
       })
+    } else {
     }
-    
-    setIsDisabled(false)
   }
 
   function handleClickBtnExit() {
@@ -78,18 +75,18 @@ function Profile(props) {
           <form onSubmit={submitForm}>
             <div className="profile__inner-container profile__inner-container_border">
                 <p className="profile__notation">Имя</p>
-                <input className="profile__user-data" disabled={isDisabled ? 'disabled' : ''} name='name' pattern='^[a-zA-Zа-яА-Я- ]+$' minLength='2' maxLength='30' value={values.name} required onChange={handleChange}/>
+                <input className="profile__user-data" name='name' pattern='^[a-zA-Zа-яА-Я- ]+$' minLength='2' maxLength='30' value={values.name} required onChange={handleChange}/>
                 
             </div>
             <span className='profile__error-text'>{errors.name}</span>
             <div className="profile__inner-container">
                 <p className="profile__notation">E-mail</p>
-                <input className="profile__user-data" disabled={isDisabled ? 'disabled' : ''} name='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' required value={values.email} type='email' onChange={handleChange}/>
+                <input className="profile__user-data" name='email' pattern='^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$' required value={values.email} type='email' onChange={handleChange}/>
                 
             </div>
             <span className='profile__error-text'>{errors.email}</span>
             <div className="profile__btn-container">
-                <button className="profile__btn" disabled={!isValid || isDisabled} type='submit'>Редактировать</button>
+                <button className="profile__btn" disabled={!isValid} type='submit'>Редактировать</button>
                 <button className="profile__btn profile__btn_red" type='button' onClick={handleClickBtnExit}>Выйти из аккаунта</button>
             </div>
           </form>
