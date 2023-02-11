@@ -1,61 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 
-import PushNotification from "../../PushNotification/PushNotification";
-
-
 import mainApi from '../../../utils/MainApi'
 
 import useFormWithValidation from '../../../hooks/useFormValidation';
 
 function Register(props) {
   const { values, handleChange, resetForm, errors, isValid } = useFormWithValidation();
+  const [isDisabled, setIsDisabled] = React.useState(false)
+
   const navigate = useNavigate()
 
-  const [isDisabled, setIsDisabled] = React.useState(false)
-  const [pushNotificationValue, setPushNotificationValue] = React.useState({
-    isActive: false,
-    isSuccessful: false
-  })
-
-  function openPushNotification(isSuccessful) {
-    closedPushNotification(isSuccessful)
-    return {
-      isActive: true,
-      isSuccessful: isSuccessful
-    }
-  }
-
-  function closedPushNotification(isSuccessful) {
-    setTimeout(() => {
-      setPushNotificationValue({
-        isActive: false,
-        isSuccessful: isSuccessful
-      })
-    }, 3000);
-  }
 
   function submitForm(e) {
     e.preventDefault()
     setIsDisabled(true)
-
-    mainApi.signUp(values)
-      .then(res => {
-        setPushNotificationValue(openPushNotification(true))
-        mainApi.signIn(values)
-          .then(res => {
-            localStorage.setItem('jwt', res.token)
-            props.setLoggedIn(true)
-            navigate('/movies')
-            setPushNotificationValue(openPushNotification(true))
-          })
-          .catch(() => {
-            setPushNotificationValue(openPushNotification(false))
-          })
-      .catch(() => {
-        setPushNotificationValue(openPushNotification(false))
-      })
-      })
+    props.handleRegister(values)
     setIsDisabled(false)
   }
 
@@ -93,7 +53,6 @@ function Register(props) {
           </div>
         </div>
       </form>
-      <PushNotification value={pushNotificationValue}/>
     </section>
   );
 }; 

@@ -6,6 +6,8 @@ import Profile from '../Profile/Profile'
 import Login from '../FormAuth/Login/Login';
 import Register from '../FormAuth/Register/Register';
 import NotFound from '../NotFound/NotFound';
+import PushNotification from "../PushNotification/PushNotification";
+
 import ProtectedRoute from '../../hooks/ProtectedRoute';
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
@@ -15,17 +17,67 @@ import mainApi from '../../utils/MainApi';
 function App() {
   const [userInfo, setUserInfo] = React.useState()
   const [loggedIn, setLoggedIn] = React.useState(true)
+  const [pushNotificationValue, setPushNotificationValue] = React.useState({
+    isActive: false,
+    isSuccessful: false
+  })
 
   const navigate = useNavigate()
 
-  React.useEffect(() => {
-    console.log(loggedIn)
-    mainApi.getUser()
-      .then(res => {
-        setUserInfo({name: res.name, email: res.email})
-        setLoggedIn(true)
+  function openPushNotification(isSuccessful) {
+    closedPushNotification(isSuccessful)
+    return {
+      isActive: true,
+      isSuccessful: isSuccessful
+    }
+  }
+
+  function closedPushNotification(isSuccessful) {
+    setTimeout(() => {
+      setPushNotificationValue({
+        isActive: false,
+        isSuccessful: isSuccessful
       })
-      .catch(res => setLoggedIn(false))
+    }, 3000);
+  }
+
+  function handleLogin(values) {
+    mainApi.signIn(values)
+      .then(res => {
+        console.log(res)
+        localStorage.setItem('jwt', res.token)
+        setLoggedIn(true)
+        navigate('/movies')
+        getUserInfo()
+        setPushNotificationValue(openPushNotification(true))
+      })
+      .catch(() => {
+        setPushNotificationValue(openPushNotification(false))
+      })
+  }
+
+  function handleRegister(values) {
+    mainApi.signUp(values)
+      .then(res => {
+        setPushNotificationValue(openPushNotification(true))
+        handleLogin(values)
+      })
+      .catch(() => {
+        setPushNotificationValue(openPushNotification(false))
+      })
+  }
+
+  function getUserInfo() {
+    mainApi.getUser()
+    .then(res => {
+      setUserInfo({name: res.name, email: res.email})
+      setLoggedIn(true)
+    })
+    .catch(res => setLoggedIn(false))
+  }
+
+  React.useEffect(() => {
+    getUserInfo()
   }, [])
 
   return (
@@ -35,10 +87,11 @@ function App() {
           <Route path='/movies' element={<ProtectedRoute component={Movies} loggedIn={loggedIn} />} />
           <Route path='/saved-movies' element={<ProtectedRoute component={SavedMovies} loggedIn={loggedIn} />} />
           <Route path='/profile' element={<ProtectedRoute component={Profile} userInfo={userInfo} setUserInfo={setUserInfo} setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-          <Route path='/signin' element={<Login setLoggedIn={setLoggedIn}  loggedIn={loggedIn}/>}/>
-          <Route path='/signup' element={<Register setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>}/>
+          <Route path='/signin' element={<Login handleLogin={handleLogin}  loggedIn={loggedIn}/>}/>
+          <Route path='/signup' element={<Register handleRegister={handleRegister} loggedIn={loggedIn}/>}/>
           <Route path='*' element={<NotFound />} />
       </Routes>
+      <PushNotification value={pushNotificationValue}/>
     </div>
   );
 }
