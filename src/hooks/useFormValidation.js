@@ -21,7 +21,7 @@ export default function useFormWithValidation() {
     } else {
         input.setCustomValidity('');
     }
-console.log(e.target)
+
     setValues({ ...values, [name]: value }); // универсальный обработчик полей
     setErrors({ ...errors, [name]: input.validationMessage }); // ошибок
     setIsValid(input.closest('form').checkValidity()); // проверка валидности

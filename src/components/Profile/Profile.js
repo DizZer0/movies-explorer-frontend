@@ -40,9 +40,8 @@ function Profile(props) {
   function submitForm(e) {
     e.preventDefault()
     setIsDisabled(true)
-    if(props.userInfo.name === values.name && props.userInfo.email === values.email) {
-      return
-    } else {
+
+    if(props.userInfo.name !== values.name || props.userInfo.email !== values.email) {
       mainApi.updateUser(values)
       .then(res => {
         props.setUserInfo({name: res.name, email: res.email})
@@ -51,7 +50,8 @@ function Profile(props) {
       .catch(() => {
         setPushNotificationValue(openPushNotification(false))
       })
-    }
+    } 
+    
     setIsDisabled(false)
   }
 
