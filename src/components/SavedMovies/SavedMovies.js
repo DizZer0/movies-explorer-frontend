@@ -8,17 +8,17 @@ import PushNotification from "../PushNotification/PushNotification";
 
 import sortingMovies from "../../hooks/sortingMovies";
 
-import moviesApi from "../../utils/MoviesApi";
+
 import Preloader from "../Preloader/Preloader";
 import mainApi from "../../utils/MainApi";
 
 function Movies() {
-  const { sortingMoviesList, sortingShortValue } = sortingMovies()
+  const { sortingSaveMoviesList, sortingShortValue } = sortingMovies()
 
-  const [movieList, setMovieList] = React.useState([]);
-  const [sortedMovieList, setSortedMovieList] = React.useState([]);
   const [saveMovieList, setSaveMovieList] = React.useState([]);
+  const [sortedMovieList, setSortedMovieList] = React.useState([])
   const [isShortValue, setIsShortValue] = React.useState(false)
+  const [inputValue, setInputValue] = React.useState()
 
   const [preloaderOn, setPreloaderOn] = React.useState(false)
   const [serverError, setServerError] = React.useState(false)
@@ -47,58 +47,27 @@ function Movies() {
 
   function handleTumbSearchForm(inputValue, isShortValue) {
     setIsShortValue(isShortValue)
-    console.log(inputValue)
-
-    localStorage.setItem('searchValue', JSON.stringify({
-      inputValue: inputValue, 
-      isShortFilm: isShortValue
-    }))
   }
 
   function submitSearchForm(inputValue, isShortValue) {
-    const sortedMovies  = sortingMoviesList(movieList, saveMovieList, inputValue)
-    localStorage.setItem('films', JSON.stringify(sortedMovies))
+    const sortedMovies  = sortingSaveMoviesList(saveMovieList, inputValue)
+    console.log(sortedMovies)
     setSortedMovieList(sortedMovies)
     setIsShortValue(isShortValue)
-
-    localStorage.setItem('searchValue', JSON.stringify({
-      inputValue: inputValue, 
-      isShortFilm: isShortValue
-    }))
-  }
-
-  function getMovieList() {
-    moviesApi.getMovies()
-        .then(res => {
-          setMovieList(res)
-          setPreloaderOn(false)
-          setServerError(false)
-        })
-        .catch(err => setServerError(true))
+    setInputValue(inputValue)
   }
 
   function getSaveMovieList() {
+    setPreloaderOn(true)
+
     mainApi.getMovies()
       .then(res => {
         setSaveMovieList(res)
+        setSortedMovieList(sortingSaveMoviesList(res, ''))
+        setPreloaderOn(false)
         setServerError(false)
       })
       .catch(err => setServerError(true))
-  }
-
-  function saveMovieCard(id) {
-    getSaveMovieList()
-
-    mainApi.saveMovie(sortedMovieList.find(item => item.id === id))
-      .then(res => {
-        setServerError(false)
-        changeLocalMovielist(res, true)
-        setPushNotificationValue(openPushNotification(true))
-      })
-      .catch(err => {
-        setServerError(true)
-        setPushNotificationValue(openPushNotification(false))
-      })
   }
 
   function changeLocalMovielist(movie, bool) {
@@ -115,47 +84,40 @@ function Movies() {
   }
 
   function deleteMovieCard(id) {
-    getSaveMovieList()
-
+    console.log('1')
     mainApi.deleteMovie(saveMovieList.find(item => item.movieId === id)._id)
       .then(res => {
-        setServerError(false)
+        getSaveMovieList()
         changeLocalMovielist(res, false)
         setPushNotificationValue(openPushNotification(true))
       })
       .catch(err => {
-        setServerError(true)
         setPushNotificationValue(openPushNotification(false))
       })
   }
 
   function switchComponent() {
-    console.log(JSON.parse(localStorage.getItem('searchValue')))
+    console.log(inputValue)
     if(serverError) {
-      return <h2 className="movies__not-found">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</h2>
-    } else if (sortedMovieList === null || sortedMovieList.length === 0) {
-      return JSON.parse(localStorage.getItem('searchValue')) === null ? '' :  <h2 className="movies__not-found">Ничего не найдено</h2>
-    } else if(sortedMovieList.length > 0 && preloaderOn === false) {
-      return <MoviesCardList movieList={sortingShortValue(sortedMovieList, isShortValue)} saveMovieCard={saveMovieCard} deleteMovieCard={deleteMovieCard}/>
+      return <h2 className="saved-movies__not-found">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</h2>
+    }  else if(saveMovieList.length > 0 && preloaderOn === false) {
+      return <MoviesCardList movieList={sortingShortValue(sortedMovieList, isShortValue)} deleteMovieCard={deleteMovieCard}/>
     } else if (preloaderOn === true) {
       return <Preloader />
-    } 
+    } else {
+      return inputValue === undefined ? '' :  <h2 className="movies__not-found">Ничего не найдено</h2>
+    }
   }
 
   React.useEffect(() => {
     setPreloaderOn(false)
-    getMovieList()
     getSaveMovieList()
-    setSortedMovieList(JSON.parse(localStorage.getItem('films')))
-
-    const searchValue = JSON.parse(localStorage.getItem('searchValue'))
-    setIsShortValue(searchValue === null ? '' : searchValue.isShortFilm)
   }, [])
 
   return (
     <>
       <Header loggedIn={true}/>    
-      <section className="movies">
+      <section className="saved-movies">
         <SearchForm submitSearchForm={submitSearchForm} handleTumbSearchForm={handleTumbSearchForm}/>
         {switchComponent()}
       </section>

@@ -6,10 +6,11 @@
 @import url(./components/Main/AboutProject/AboutProject.css);
 @import url(./components/Main/Techs/Techs.css);
 @import url(./components/Main/AboutMe/AboutMe.css);
+@import url(./components/SavedMovies/SavedMovies.css);
 @import url(./components/Movies/Movies.css);
-@import url(./components/Movies/SearchForm/SearchForm.css);
-@import url(./components/Movies/MoviesCardList/MoviesCardList.css);
-@import url(./components/Movies/MoviesCard/MoviesCard.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/MoviesCardList/MoviesCardList.css);
+@import url(./components/MoviesCard/MoviesCard.css);
 @import url(./components/Footer/Footer.css);
 @import url(./components/Navigation/Navigation.css);
 @import url(./components/NavigationPopup/NavigationPopup.css);
@@ -18,3 +19,4 @@
 @import url(./components/FormAuth/Login/Login.css);
 @import url(./components/FormAuth/Register/Register.css);
 @import url(./components/NotFound/NotFound.css);
+@import url(./components/PushNotification/PushNotification.css);

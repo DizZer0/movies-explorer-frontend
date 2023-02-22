@@ -1,9 +1,12 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 function SearchForm(props) {
+  const [currentInputValue, setCurrentInputValue] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('');
   const [placeHolder, setPlaceHolder] = React.useState('Фильм');
   const [isShortFilm, setIsShortFilm] = React.useState(false);
+  const location = useLocation()
 
   function handleChangeInput(e) {
     setInputValue(e.target.value)
@@ -11,23 +14,28 @@ function SearchForm(props) {
 
   function handleTumb() {    
     setIsShortFilm(!isShortFilm);
+    props.handleTumbSearchForm(currentInputValue, !isShortFilm)
   }
   
   function handleSearchForm(e) {
     e.preventDefault()
+    setCurrentInputValue(inputValue)
 
     if (inputValue === '') {
       setPlaceHolder('Нужно ввести ключевое слово')
     } else {
-      props.submitSearchForm(inputValue, isShortFilm)
+      props.submitSearchForm(inputValue.toLowerCase(), isShortFilm)
       setPlaceHolder('Фильм')
     }
   }
 
   React.useEffect(() => {
-    const searchValue = JSON.parse(localStorage.getItem('searchValue'))
-    setInputValue(searchValue === null ? '' : searchValue.inputValue)
-    setIsShortFilm(searchValue === null ? '' : searchValue.isShortFilm)
+    if(location.pathname === '/movies') {
+      const searchValue = JSON.parse(localStorage.getItem('searchValue'))
+      setInputValue(searchValue === null ? '' : searchValue.inputValue)
+      setIsShortFilm(searchValue === null ? false : searchValue.isShortFilm)
+      setCurrentInputValue(searchValue === null ? '' : searchValue.inputValue)
+    }
   }, [])
 
   return (

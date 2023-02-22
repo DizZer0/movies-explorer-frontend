@@ -7,10 +7,21 @@
   flex-direction: column;
 }
 
+
+
 .form-auth__img {
+  background-image: url('../../images/logo.svg');
+  background-repeat: no-repeat;
+  height: 38px;
   width: 38px;
-  padding-bottom: 50px;
+  transition: .2s;
+  cursor: pointer;
   align-self: center;
+  padding-bottom: 50px;
+}
+
+.form-auth__img:hover {
+  opacity: .85;
 }
 
 .form-auth__title {
@@ -71,10 +82,6 @@
 }
 
 .form-auth__error-text {
-  display: none;
-}
-
-.form-auth__error-text {
   font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -100,6 +107,11 @@
   text-align: center;
   color: #FFFFFF;
   transition: .2s;
+}
+
+.form-auth__btn_disabled {
+  background-color: #4b4b4b;
+  opacity: .8;
 }
 
 .form-auth__btn:hover {

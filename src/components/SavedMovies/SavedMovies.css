@@ -1,10 +1,10 @@
-.movies {
+.saved-movies {
   padding: 60px 10px 80px;
   background-color: #202020;
   flex-grow: 1;
 }
 
-.movies__not-found {
+.saved-movies__not-found {
   margin: 0;
   padding: 50px 0 0;
   font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
@@ -15,14 +15,14 @@
 }
 
 @media (min-width: 768px) {
-  .movies {
+  .saved-movies {
     padding: 60px 30px 80px;
     background-color: #202020;
   }
 }
 
 @media (min-width: 1280px) {
-  .movies {
+  .saved-movies {
     padding: 80px 70px 80px;
     background-color: #202020;
   }

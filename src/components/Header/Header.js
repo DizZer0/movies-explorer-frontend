@@ -3,7 +3,7 @@ import Navigation from "../Navigation/Navigation";
 function Header(props) {
   return (
     <header className="header">
-      <Navigation isMain={props.isMain}/>
+      <Navigation loggedIn={props.loggedIn} isMain={props.isMain}/>
     </header> 
   );
 };

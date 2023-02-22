@@ -62,11 +62,11 @@
 }
 
 .movies-card__save-btn_active {
-  background: #EE3465 url(../../../images/saveBtnActive.svg) center no-repeat ;
+  background: #EE3465 url(./../../images/saveBtnActive.svg) center no-repeat ;
 }
 
 .movies-card__save-btn_delete {
-  background: #313131 url(../../../images/saveBtnDelete.svg) center no-repeat ;
+  background: #313131 url(./../../images/saveBtnDelete.svg) center no-repeat ;
 }
 
 @media (min-width: 768px) {

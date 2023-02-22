@@ -1,0 +1,35 @@
+.push-notification {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  width: 150px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgb(240, 113, 113);
+  display: flex;
+  justify-content: center;
+  animation: opacity100 .5s forwards;
+}
+
+@keyframes opacity100 {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.push-notification_disabled {
+  display: none;
+}
+
+.push-notification_successful {
+  background-color: rgb(153, 248, 153);
+}
+
+.push-notification__title {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 145%;
+  color: black;
+  align-self: center;
+}

@@ -49,17 +49,34 @@
   margin: 0;
   color: #FFFFFF;
   padding-bottom: 17px;
+  white-space: nowrap
 }
 
 .profile__user-data {
+  background-color: #202020;
+  border: none;
+  outline: none;
   font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
+  text-align: right;
   color: #FFFFFF;
   margin: 0;
   padding-bottom: 17px;
+  width: 100%;
+}
+
+.profile__error-text {
+  font-family: 'Inter' , 'Arial', 'Helvetica', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  text-align: left;
+  padding-top: 10px;
 }
 
 .profile__btn {
@@ -74,6 +91,7 @@
   color: #FFFFFF;
   padding-bottom: 16px;
   transition: .2s;
+  cursor: pointer;
 }
 
 .profile__btn:hover {

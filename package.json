@@ -16,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && scp -r ./build/* dizzero@84.201.172.92:/home/dizzero/movies-explorer-frontend",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -26,7 +27,7 @@
     ]
   },
   "browserslist": {
-    "prodnpm uction": [
+    "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
